@@ -69,7 +69,7 @@ function refresh() {
 function printQuote()  {
   html = '';
   randomQuote = getRandomQuote();
-  //display the selected quote idex in the console
+  //display the selected quote index in the console
   console.log(randomQuote);
 
   //set a value for the variables listed below
