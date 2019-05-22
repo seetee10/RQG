@@ -79,7 +79,7 @@ function printQuote()  {
   year = quotes[randomQuote].year;
 
   //display quote in the html file provided for this project
-  html += '<p class="quote">'+ randomQuote + '-' + quote + '"</p>';
+  html += '<p class="quote">'+ randomQuote + '-' + quote + '</p>';
 
   //only display source with quote if citation and year are blank
   if (citation === '' && year === '') {
