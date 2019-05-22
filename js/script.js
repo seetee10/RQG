@@ -59,6 +59,11 @@ function print(html) {
   div.innerHTML = html;
 }
 
+//added function to reload page every 5 seconds
+function refresh() {
+  document.location.reload();
+}
+
 //   Create the `printQuote` function that calls getRandomQuote` function and assign it to the randomQuote variable.
 
 function printQuote()  {
@@ -100,6 +105,9 @@ function printQuote()  {
 
 //display a quote when the html page initially loads
 printQuote();
+
+//sets page to automatically reload every 5 seconds
+setTimeout(refresh, 5000);
 
 /***
   When the "Show another quote" button is clicked, the event listener
