@@ -1,7 +1,5 @@
 
-/*
-  -Create an array of quote objects with properties of quotes, source, citation & year.
-*/
+//Create an array of quote objects with properties of quotes, source, citation & year.
 let quotes = [
 		{
 		quote: "Technology, through automation and artificial intelligence, is definitely one of the most disruptive sources.",
@@ -36,7 +34,7 @@ let quotes = [
 ];
 
 //display arrary of objects in the console when the page initally loads
-console.log(quotes);
+//console.log(quotes);
 
 //define all the required variables in order for the page to load with a random quote
 let html = '';
@@ -48,10 +46,13 @@ let year = quotes[randomQuote].year;
 
 // getRandomQuote function retrieves the index of random quotes in the array of objects
 function getRandomQuote() {
-  let numberOfRandomQuotes;
-  numberOfRandomQuotes = Math.floor(Math.random() * quotes.length);
-  return numberOfRandomQuotes;
+  let randomQuotesNumber;
+  randomQuotesNumber = Math.floor(Math.random() * quotes.length);
+  console.log(quotes[randomQuotesNumber].quote);
+  return randomQuotesNumber;
 };
+
+
 
 //  print function that populates html tags.
 function print(html) {
@@ -65,12 +66,11 @@ function refresh() {
 }
 
 //   Create the `printQuote` function that calls getRandomQuote` function and assign it to the randomQuote variable.
-
 function printQuote()  {
   html = '';
   randomQuote = getRandomQuote();
   //display the selected quote index in the console
-  console.log(randomQuote);
+  //console.log(randomQuote);
 
   //set a value for the variables listed below
   quote = quotes[randomQuote].quote;
@@ -107,7 +107,7 @@ function printQuote()  {
 printQuote();
 
 //sets page to automatically reload every 5 seconds
-setTimeout(refresh, 5000);
+//setTimeout(refresh, 5000);
 
 /***
   When the "Show another quote" button is clicked, the event listener
