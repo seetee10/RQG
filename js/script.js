@@ -1,99 +1,105 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
-/***
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
-***/
-let html = '';
+/*
+  -Create an array of quote objects with properties of quotes, source, citation & year.
+*/
 let quotes = [
 		{
-		quote: "1. Technology, through automation and artificial intelligence, is definitely one of the most disruptive sources.",
-		source: 'Alain Dehaze',
-    citation: 'Quote By Alain Dehaze KeenBrain. Retrieved May 20, 2019',
-    year: '2017'
+		quote: "Technology, through automation and artificial intelligence, is definitely one of the most disruptive sources.",
+		source: "Alain Dehaze",
+    citation: '',
+    year: "2017"
 		},
 		{
-		quote: "2. It is one of my sources of happiness never to desire a knowledge of other people's business",
-		source: 'brainyquote.com',
-    citation: 'brainyquote.com',
+		quote: "It is one of my sources of happiness never to desire a knowledge of other people's business",
+		source: 'Fran Leibowitz',
+    citation: 'Metropolitan Life',
     year: ''
 		},
 		{
-		quote: "3. A little Learning is a dang’rous Thing",
-		source: 'Internet',
-		citation: 'Google search',
-    year: '2013'
+		quote: "The force is strong with this one",
+		source: "Darth Vader",
+		citation: "The Empire Strikes Back",
+    year: "1980"
     },
 		{
-		quote: "4. The best preparation for tomorrow is doing your best today.",
-		source: 'H. Jackson Brown Jr',
-		citation: 'Brainy Quote',
-    year: '1970'
+		quote: "The best preparation for tomorrow is doing your best today.",
+		source: "H. Jackson Brown Jr",
+		citation: '',
+    year: ''
 		},
 		{
-		quote: "5. Good, better, best. Never let it rest. 'Til your good is better and your better is best.",
+		quote: "Good, better, best. Never let it rest. 'Til your good is better and your better is best.",
 		source: 'St Jerome',
-	  citation: 'Brainy Quote',
-    year: '385AD'
+	  citation: '',
+    year: ''
 		},
 ];
 
-/***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number
-   - Use the random number to `return` a random quote object from the `quotes` array.
-***/
+//display arrary of objects in the console when the page initally loads
+console.log(quotes);
+
+//define all the required variables in order for the page to load with a random quote
+let html = '';
+let randomQuote = getRandomQuote();
+let quote = quotes[randomQuote].quote;
+let source = quotes[randomQuote].source;
+let citation = quotes[randomQuote].citation;
+let year = quotes[randomQuote].year;
+
+// getRandomQuote function retrieves the index of random quotes in the array of objects
 function getRandomQuote() {
   let numberOfRandomQuotes;
-  let randomQuote;
-  numberOfRandomQuotes = Math.floor(Math.random() * quotes.length)
+  numberOfRandomQuotes = Math.floor(Math.random() * quotes.length);
   return numberOfRandomQuotes;
-  console.log(numberOfRandomQuotes);
+};
 
-  };
-
-/***
-  Create the `printQuote` function to:
-   - Call the `getRandomQuote` function and assign it to a variable.
-   - Create a variable for the HTML string and set it equal to an empty string.
-   - Use the HTML template in the instructions or the markup in the index.html file, AND
-     the random quote vairable to build your HTML string.
-   - Add the quote and source section to the HTML string.
-   - Use an if statement to check for the citation property before adding it to the HTML string.
-   - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string.
-***/
-
+//  print function that populates html tags.
 function print(html) {
   var div = document.getElementById('quote-box');
   div.innerHTML = html;
 }
 
+//   Create the `printQuote` function that calls getRandomQuote` function and assign it to the randomQuote variable.
+
 function printQuote()  {
   html = '';
-  let randomQuote = getRandomQuote();
-  randomQuote;
-  if (quotes[randomQuote].citation === '' || quotes[randomQuote].year === '') {
-    printQuote();
-  } else {
-      html += '<p>' + quotes[randomQuote].quote + '</p>';
-      html += '<p>'+quotes[randomQuote].source + '</p>';
-      print(html);
+  randomQuote = getRandomQuote();
+  //display the selected quote idex in the console
+  console.log(randomQuote);
+
+  //set a value for the variables listed below
+  quote = quotes[randomQuote].quote;
+  source = quotes[randomQuote].source;
+  citation = quotes[randomQuote].citation;
+  year = quotes[randomQuote].year;
+
+  //display quote in the html file provided for this project
+  html += '<p class="quote">'+ randomQuote + '-' + quote + '"</p>';
+
+  //only display source with quote if citation and year are blank
+  if (citation === '' && year === '') {
+    html += '<p class=' + 'source>' + source + '</p>';
+    /*<p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>*/
+  };
+  //only display source with quote and year if citation blank
+  if (citation === '' && year !== '') {
+        html += '<p class=source>' + source + '<span class="year">' + year + '</p>';
   }
+  //only display source with quote and citation if year blank
+  if (year === '' && citation !== '') {
+        html += '<p class=source>' + source + '<span class="citation">' + citation + '</p>';
+    }
+ //display all object properties if everything is filled
+  if (year !== '' && citation !== '') {
+        html += '<p class=source>' + source + '<span class="citation">' + citation + '<span class="year">' + year + '</p>';
+    }
+
+  //display the html content
+  print(html);
 }
 
-//printQuote();
+//display a quote when the html page initially loads
+printQuote();
 
 /***
   When the "Show another quote" button is clicked, the event listener
@@ -101,8 +107,4 @@ function printQuote()  {
   function. So do not make any changes to the line of code below this
   comment.
 ***/
-
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
