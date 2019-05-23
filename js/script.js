@@ -85,7 +85,7 @@ function printQuote()  {
 
   //only display source with quote if citation and year are blank
   if (citation === '' && year === '') {
-    html += '<p class=' + 'source>' + source + '</p>';
+    html += '<p class=source>' + source + '</p>';
     /*<p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>*/
   };
   //only display source with quote and year if citation blank
