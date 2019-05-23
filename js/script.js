@@ -58,7 +58,7 @@ function getRandomQuote() {
 
 //  print function that populates html tags.
 function print(html) {
-  var div = document.getElementById('quote-box');
+  let div = document.getElementById('quote-box');
   div.innerHTML = html;
 }
 
@@ -69,16 +69,14 @@ function refresh() {
 
 //   Create the `printQuote` function that calls getRandomQuote` function and assign it to the randomQuote variable.
 function printQuote()  {
-  html = '';
-  randomQuote = getRandomQuote();
-  //display the selected quote index in the console
-  console.log(randomQuote);
-
-  //set a value for the variables listed below
-  quote = quotes[randomQuote].quote;
-  source = quotes[randomQuote].source;
-  citation = quotes[randomQuote].citation;
-  year = quotes[randomQuote].year;
+  //initialize and set a value for the variables listed below
+  let html = '';
+  //call the getRandomQuote for a list of quotes and properties in the array of objects
+  let randomQuote = getRandomQuote();
+  let quote = quotes[randomQuote].quote;
+  let source = quotes[randomQuote].source;
+  let citation = quotes[randomQuote].citation;
+  let year = quotes[randomQuote].year;
 
   //display quote in the html file provided for this project
   html += '<p class="quote">' + quote + '</p>';
