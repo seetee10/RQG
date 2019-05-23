@@ -8,13 +8,13 @@ let quotes = [
     year: "2017"
 		},
 		{
-		quote: "It is one of my sources of happiness never to desire a knowledge of other people's business",
+		quote: "It is one of my sources of happiness never to desire a knowledge of other people's business.",
 		source: 'Fran Leibowitz',
     citation: 'Metropolitan Life',
     year: ''
 		},
 		{
-		quote: "The force is strong with this one",
+		quote: "The force is strong with this one.",
 		source: "Darth Vader",
 		citation: "The Empire Strikes Back",
     year: "1980"
@@ -37,12 +37,14 @@ let quotes = [
 //console.log(quotes);
 
 //define all the required variables in order for the page to load with a random quote
+/*
 let html = '';
 let randomQuote = getRandomQuote();
 let quote = quotes[randomQuote].quote;
 let source = quotes[randomQuote].source;
 let citation = quotes[randomQuote].citation;
 let year = quotes[randomQuote].year;
+*/
 
 // getRandomQuote function retrieves the index of random quotes in the array of objects
 function getRandomQuote() {
@@ -70,7 +72,7 @@ function printQuote()  {
   html = '';
   randomQuote = getRandomQuote();
   //display the selected quote index in the console
-  //console.log(randomQuote);
+  console.log(randomQuote);
 
   //set a value for the variables listed below
   quote = quotes[randomQuote].quote;
