@@ -81,7 +81,7 @@ function printQuote()  {
   year = quotes[randomQuote].year;
 
   //display quote in the html file provided for this project
-  html += '<p class="quote">'+ randomQuote + '-' + quote + '</p>';
+  html += '<p class="quote">' + quote + '</p>';
 
   //only display source with quote if citation and year are blank
   if (citation === '' && year === '') {
@@ -109,7 +109,7 @@ function printQuote()  {
 printQuote();
 
 //sets page to automatically reload every 5 seconds
-//setTimeout(refresh, 5000);
+setTimeout(refresh, 5000);
 
 /***
   When the "Show another quote" button is clicked, the event listener
